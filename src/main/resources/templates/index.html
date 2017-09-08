@@ -1,0 +1,17 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head sec:authorize="hasAuthority('ADMIN')"th:replace="admibase::adminappnav":th:replace="base::appnav">
+</head>
+<body>
+        <div sec:authorize="hasAuthority('ADMIN')">
+            <div th:replace="base::appnav"></div>
+        </div >
+
+        <div sec:authorize="isAuthenticated()">
+            This user is logged in with the following roles: <span sec:authentication="principal.authorities"></span>
+        <div sec:authorize="isAnonymous()">
+            This is ananonymous user
+        </div>
+</body>
+</html>
