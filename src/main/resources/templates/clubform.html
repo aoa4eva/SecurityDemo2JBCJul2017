@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Club Form</title>
+</head>
+<body>
+
+    <form th:action="@{/addclub}" th:object="${club}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <span th:if="#{fields.hasErrors('name')}" th:errors="*{name}"></span>
+        <label>Club name</label>
+        <input type="text" placeholder="Enter club name" th:field="*{name}">
+        <input type="submit" value="Submit">
+    </form>
+    </body>
+</html>
